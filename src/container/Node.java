@@ -8,23 +8,24 @@ package container;
 /**
  *
  * @author laboratorio
+ * @param <T>
  */
-public class Node {
-    private String data;
+public class Node<T> {
     private Node next;
     private Node prev;
+    private T data;
 
-    public Node(String data) {
+    public Node(T data) {
         this.data = data;
         this.next = null;
         this.prev = null;
     }
 
-    public String getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(T data) {
         this.data = data;
     }
 
@@ -42,6 +43,11 @@ public class Node {
 
     public void setPrev(Node prev) {
         this.prev = prev;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" + "data=" + data + '}';
     }
     
     

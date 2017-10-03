@@ -9,9 +9,10 @@ package container;
  *
  * @author laboratorio
  */
-public class List {
+public class List<T> {
+
     private int size;
-    private Node head;
+    private Node<T> head;
 
     public List() {
         this.size = 0;
@@ -21,6 +22,30 @@ public class List {
     public int size() {
         return size;
     }
+
+    public Node<T> getHead() {
+        return head;
+    }
     
     
+
+    public boolean add(T data) {
+        final Node<T> nNew = new Node<>(data);
+
+        if (null == head) {
+            head = nNew;
+        } else {
+            Node aux = head;
+            while (aux.getNext() != null) {
+                aux = aux.getNext();
+            }
+            
+            aux.setNext(nNew);
+            nNew.setPrev(aux);
+        }
+
+        ++size;
+        return true;
+    }
+
 }
